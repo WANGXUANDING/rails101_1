@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <h2 class="text-center"> fabiao</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>content </th>
+        <th>groupname </th>
+        <th>last Update</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.contnet %></td>
+          <td><%= post.group.title %></td>
+          <td><%= post.updated_at %></td>
+          <td><%= link_to("edit",edit_group_post_path(post.group, post), class: "btn
+            btn-default btn-xs") %></td>
+          <td><%= link_to("delte", group_post_path(post.group, post) method: :deleted
+            , data; {confirm: "r u sure"}, class: "btn btn-default btn-xs") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
