@@ -12,13 +12,14 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= post.contnet %></td>
+          <td><%= post.content %></td>
           <td><%= post.group.title %></td>
           <td><%= post.updated_at %></td>
           <td><%= link_to("edit",edit_group_post_path(post.group, post), class: "btn
             btn-default btn-xs") %></td>
-          <td><%= link_to("delte", group_post_path(post.group, post) method: :deleted
-            , data; {confirm: "r u sure"}, class: "btn btn-default btn-xs") %></td>
+          <td><%= link_to("delte", group_post_path(post.group, post), method: :delete,
+             data: {confirm: "r u sure"}, class: "btn btn-default btn-xs") %></td>
+
         </tr>
       <% end %>
     </tbody>
